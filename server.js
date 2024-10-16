@@ -7,9 +7,6 @@ const { verboseLog } = require('./utils')
 // Load environment variables from .env file
 require("dotenv").config();
 
-// Global verbose mode variable, can be set via command line arguments
-const verbose = process.argv.includes('-v');
-
 // Define the allowed origins from .env file
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(","); // Split by comma if multiple origins
 
@@ -42,26 +39,26 @@ wss.on("connection", (ws, req) => {
 
 	// Check if the origin is allowed
 	if (!allowedOrigins.includes(origin)) {
-		console.log(`Connection from origin ${origin} is not allowed.`);
+		verboseLog(`Connection from origin ${origin} is not allowed.`);
 		ws.close(); // Close the WebSocket connection if the origin is not allowed
 		return;
 	}
 
-	console.log(`Connection from origin ${origin} is allowed.`);
+	verboseLog(`Connection from origin ${origin} is allowed.`);
 
 	// Send a welcome message to the client
 	ws.send("Welcome to the WebSocket server!");
 
 	// Listen for messages from the client
 	ws.on("message", (message) => {
-		console.log(`Received: ${message}`);
+		verboseLog(`Received: ${message}`);
 		// Echo the message back to the client
 		ws.send(`Echo: ${message}`);
 	});
 
 	// Listen for the client disconnecting
 	ws.on("close", () => {
-		console.log("Client disconnected");
+		verboseLog("Client disconnected");
 	});
 });
 
