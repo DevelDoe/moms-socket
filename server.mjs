@@ -1,11 +1,11 @@
-const https = require("https");
-const WebSocket = require("ws");
-const fs = require("fs");
-const path = require("path");
-const fetch = require("node-fetch");
+import https from "https";
+import { WebSocketServer } from "ws";
+import fs from "fs";
+import path from "path";
+import fetch from "node-fetch"; // Use import syntax for fetch
+import { config } from "dotenv";
 
-// Load environment variables from .env file
-require("dotenv").config();
+config(); // Load environment variables from .env
 
 // Define the allowed origins from .env file
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(","); // Split by comma if multiple origins
@@ -18,15 +18,15 @@ const port = process.env.PORT || 4000;
 
 // Load SSL/TLS certificates from .env paths
 const serverOptions = {
-    cert: fs.readFileSync(path.resolve(__dirname, process.env.SSL_CERT_PATH)), // Path to your SSL certificate
-    key: fs.readFileSync(path.resolve(__dirname, process.env.SSL_KEY_PATH)), // Path to your private key
+    cert: fs.readFileSync(path.resolve(process.cwd(), process.env.SSL_CERT_PATH)), // Path to your SSL certificate
+    key: fs.readFileSync(path.resolve(process.cwd(), process.env.SSL_KEY_PATH)), // Path to your private key
 };
 
 // Create an HTTPS server
 const server = https.createServer(serverOptions);
 
 // Attach WebSocket server to the HTTPS server
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocketServer({ server });
 
 console.log(`WebSocket server is listening securely on wss://localhost:${port}`);
 
