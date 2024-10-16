@@ -2,6 +2,7 @@ const https = require("https");
 const WebSocket = require("ws");
 const fs = require("fs");
 const path = require("path");
+const { verboseLog } = require('./utils')
 
 // Load environment variables from .env file
 require("dotenv").config();
