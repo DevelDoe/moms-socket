@@ -20,6 +20,9 @@ const serverOptions = {
 // Create an HTTPS server
 const server = https.createServer(serverOptions);
 
+// Attach WebSocket server to the HTTPS server
+const wss = new WebSocket.Server({ server });
+
 console.log(`Websocket server is listening on ws://localhost:${port}`);
 
 // Listen for connection events
