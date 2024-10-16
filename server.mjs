@@ -30,12 +30,13 @@ const wss = new WebSocketServer({ server });
 
 console.log(`WebSocket server is listening securely on wss://localhost:${port}`);
 
-// Function to get a response from OpenAI's GPT model
 async function getOpenAIResponse(prompt) {
     const openaiUrl = 'https://api.openai.com/v1/chat/completions';
+    
+    // Ensure the prompt is a string
     const requestBody = {
         model: "gpt-3.5-turbo", // or any other model you prefer
-        messages: [{ role: "user", content: prompt }],
+        messages: [{ role: "user", content: String(prompt) }], // Convert prompt to string
     };
 
     try {
@@ -60,6 +61,7 @@ async function getOpenAIResponse(prompt) {
         throw error;
     }
 }
+
 
 // Listen for WebSocket connection events
 wss.on("connection", (ws, req) => {
