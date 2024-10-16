@@ -1,5 +1,12 @@
-// Load the WebSocket library
+const https = require("https");
 const WebSocket = require("ws");
+const fs = require("fs");
+
+// Load your SSL certificates
+const server = https.createServer({
+	cert: fs.readFileSync("/path/to/your/cert.pem"),
+	key: fs.readFileSync("/path/to/your/key.pem"),
+});
 
 const port = 4000;
 
