@@ -81,7 +81,7 @@ wss.on("connection", (ws, req) => {
 
     // Listen for messages from the client
     ws.on("message", async (message) => {
-        console.log(`Received message from client: ${message}`);
+        //console.log(`Received message from client: ${message}`);
 
         try {
             // Get response from OpenAI's GPT
