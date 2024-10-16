@@ -17,8 +17,8 @@ const serverOptions = {
 	), // Path to your private key
 };
 
-// Create a WebSocket server on port 5000
-const wss = new WebSocket.Server({ port });
+// Create an HTTPS server
+const server = https.createServer(serverOptions);
 
 console.log(`Websocket server is listening on ws://localhost:${port}`);
 
