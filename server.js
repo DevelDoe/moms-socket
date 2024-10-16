@@ -4,6 +4,7 @@ const WebSocket = require("ws");
 const fs = require("fs");
 const path = require("path");
 
+// Port for the WebSocket server (HTTPS/WSS)
 const port = 4000;
 
 // Create a WebSocket server on port 5000
