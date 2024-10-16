@@ -9,6 +9,10 @@ require("dotenv").config();
 // Define the allowed origins from .env file
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(","); // Split by comma if multiple origins
 
+// Your Telegram Bot Token and OpenAI API Key
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Add OpenAI API key
+
 // Port for the WebSocket server (HTTPS/WSS)
 const port = process.env.PORT || 4000;
 
