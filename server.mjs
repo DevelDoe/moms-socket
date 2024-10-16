@@ -36,7 +36,7 @@ async function getOpenAIResponse(prompt) {
     // Ensure the prompt is a string
     const requestBody = {
         model: "gpt-3.5-turbo", // or any other model you prefer
-        messages: [{ role: "user", content: String(`Hi chat, can you analise my trading data and give me some feedback: ${prompt}`) }], // Convert prompt to string
+        messages: [{ role: "user", content: String(`Hi chat, can you analise my trading data and give me some feedback. Please dont read me back the data i send you: ${prompt}`) }], // Convert prompt to string
     };
 
     try {
