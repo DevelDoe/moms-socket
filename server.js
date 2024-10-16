@@ -4,6 +4,10 @@ const WebSocket = require("ws");
 const fs = require("fs");
 const path = require("path");
 
+// Define the allowed origins, including localhost:8080
+const allowedOrigins = ['http://localhost:8080'];
+
+
 // Port for the WebSocket server (HTTPS/WSS)
 const port = 4000;
 
