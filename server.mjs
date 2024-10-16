@@ -77,11 +77,11 @@ wss.on("connection", (ws, req) => {
     console.log(`Connection from origin ${origin} is allowed.`);
 
     // Send a welcome message to the WebSocket client
-    ws.send("Welcome to the WebSocket server!");
+    ws.send("Analizing your trading data...");
 
     // Listen for messages from the client
     ws.on("message", async (message) => {
-        console.log(`Received message from client:`);
+        console.log(`Received message from client`);
 
         try {
             // Get response from OpenAI's GPT
