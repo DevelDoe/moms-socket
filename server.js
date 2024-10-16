@@ -6,6 +6,9 @@ const path = require("path");
 // Load environment variables from .env file
 require("dotenv").config();
 
+// Global verbose mode variable, can be set via command line arguments
+const verbose = process.argv.includes('-v');
+
 // Define the allowed origins from .env file
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(","); // Split by comma if multiple origins
 
