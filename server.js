@@ -10,7 +10,7 @@ require('dotenv').config();
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(','); // Split by comma if multiple origins
 
 // Port for the WebSocket server (HTTPS/WSS)
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 // Load SSL/TLS certificates
 const serverOptions = {
