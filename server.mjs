@@ -38,7 +38,7 @@ async function getOpenAIResponse(prompt) {
         model: "gpt-3.5-turbo", // or any other model you prefer
         messages: [{ role: "user", content: String(`
             Can you analize my trading data and give me some short feedback? dont respond with the same data i just sent you. Just give me some feedback in plain english. 
-            Dont answer with any ticker name: ${prompt}
+            : ${prompt}
             `) }], // Convert prompt to string
     };
 
