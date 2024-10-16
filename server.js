@@ -3,6 +3,9 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 // Define the allowed origins, including localhost:8080
 const allowedOrigins = ['http://localhost:8080'];
 
