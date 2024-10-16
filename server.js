@@ -7,6 +7,16 @@ const path = require("path");
 // Port for the WebSocket server (HTTPS/WSS)
 const port = 4000;
 
+// Load SSL/TLS certificates
+const serverOptions = {
+	cert: fs.readFileSync(
+		path.resolve(__dirname, "./certificate.pem")
+	), // Path to your SSL certificate
+	key: fs.readFileSync(
+		path.resolve(__dirname, "./private-key.pem")
+	), // Path to your private key
+};
+
 // Create a WebSocket server on port 5000
 const wss = new WebSocket.Server({ port });
 
