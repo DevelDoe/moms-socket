@@ -5,8 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Define the allowed origins, including localhost:8080
-const allowedOrigins = ['http://localhost:8080'];
-
+const allowedOrigins = ["http://localhost:8080"];
 
 // Port for the WebSocket server (HTTPS/WSS)
 const port = 4000;
@@ -29,6 +28,17 @@ console.log(
 
 // Listen for connection events
 wss.on("connection", (ws) => {
+	const origin = req.headers.origin; // Get the Origin header from the request
+
+	// Check if the origin is allowed
+	if (!allowedOrigins.includes(origin)) {
+		console.log(`Connection from origin ${origin} is not allowed.`);
+		ws.close(); // Close the WebSocket connection if the origin is not allowed
+		return;
+	}
+
+    console.log(`Connection from origin ${origin} is allowed.`);
+
 	console.log("New client connected");
 
 	// Send a welcome message to the client
