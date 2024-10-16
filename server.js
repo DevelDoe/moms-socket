@@ -28,6 +28,9 @@ console.log(
 
 // Listen for connection events
 wss.on("connection", (ws) => {
+    console.log("New client connected");
+
+    
 	const origin = req.headers.origin; // Get the Origin header from the request
 
 	// Check if the origin is allowed
@@ -39,7 +42,7 @@ wss.on("connection", (ws) => {
 
     console.log(`Connection from origin ${origin} is allowed.`);
 
-	console.log("New client connected");
+	
 
 	// Send a welcome message to the client
 	ws.send("Welcome to the WebSocket server!");
