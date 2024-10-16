@@ -1,5 +1,8 @@
-// Load the WebSocket library
+// Import necessary modules
+const https = require("https");
 const WebSocket = require("ws");
+const fs = require("fs");
+const path = require("path");
 
 const port = 4000;
 
