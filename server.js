@@ -6,8 +6,8 @@ const path = require('path');
 // Load environment variables from .env file
 require('dotenv').config();
 
-// Define the allowed origins, including localhost:8080
-const allowedOrigins = ['http://localhost:8080'];
+// Define the allowed origins from .env file
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(','); // Split by comma if multiple origins
 
 // Port for the WebSocket server (HTTPS/WSS)
 const port = 4000;
