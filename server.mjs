@@ -88,7 +88,7 @@ wss.on("connection", (ws, req) => {
             const aiResponse = await getOpenAIResponse(message);
 
             // Send the AI response back to the WebSocket client
-            ws.send(`AI Response: ${aiResponse}`);
+            ws.send(`${aiResponse}`);
         } catch (error) {
             console.error("Error processing AI response:", error);
             ws.send("Error processing your request. Please try again later.");
